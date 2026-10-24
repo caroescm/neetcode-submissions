@@ -1,12 +1,7 @@
-from collections import defaultdict
+from collections import Counter
 
 class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res = defaultdict(list)
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        pairs = Counter(nums).most_common(k)
 
-        for s in strs:
-            sortedS = ''.join(sorted(s))
-            res[sortedS].append(s)
-    
-        return list(res.values())
-
+        return [num for num,count in pairs]
